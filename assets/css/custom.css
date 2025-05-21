@@ -1,0 +1,257 @@
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: white;
+}
+
+header {
+  background-color: #fff !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  color: #000 !important;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 20px;
+  height: 100px;
+}
+
+.menu-container {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  order: 1;
+  flex-shrink: 0;
+}
+
+.logo-central {
+  order: 2;
+  position: static;
+  transform: none;
+  flex-grow: 0;
+  text-align: center;
+}
+
+.logo-central img {
+  transform: scale(0.7) !important;
+}
+
+.perfil-admin {
+  order: 3;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: flex-end;
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.icon-carrinho {
+  cursor: pointer;
+  flex-shrink: 0;
+  filter: invert(33%) sepia(79%) saturate(6793%) hue-rotate(320deg) brightness(95%) contrast(107%);
+  margin-right: 25px;
+}
+
+.icon-carrinho img {
+  width: 20px;
+}
+
+.perfil-admin img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.perfil-admin nav a {
+  border: 2px solid #e75480 !important;
+  background: #e75480 !important;
+  color: #fff !important;
+  border-radius: 20px;
+  padding: 6px 12px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color .3s;
+}
+
+.perfil-admin nav a:hover {
+  background: #d6436f !important;
+}
+
+.hamburger-menu span {
+  background-color: #e75480 !important;
+}
+
+.pagina-container main section > h2 {
+  text-align: center !important;
+  color: #e75480 !important;
+  margin: 20px 0 !important;
+  font-weight: 700 !important;
+}
+
+.catalogo-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding: 0 20px;
+}
+
+.catalogo-header h2 {
+  color: #e75480 !important;
+  margin: 0;
+}
+
+.catalogo-busca {
+  display: flex;
+  align-items: center;
+}
+
+.catalogo-busca input {
+  width: 200px;
+  height: 36px;
+  padding: 0 12px;
+  border: 2px solid #e75480;
+  border-radius: 18px;
+  outline: none;
+  transition: border-color .3s;
+}
+
+.catalogo-busca input:focus {
+  border-color: #d6436f;
+}
+
+.catalogo-busca button {
+  display: none !important;
+}
+
+section.produtos {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+  padding: 40px 20px;
+}
+
+.produto {
+  background: #fff;
+  border: 2px solid #e75480 !important;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, .1);
+  transition: transform .3s;
+  position: relative;
+}
+
+.produto:hover {
+  transform: translateY(-10px);
+}
+
+.produto img {
+  width: 100%;
+}
+
+.produto .descricao {
+  padding: 20px;
+}
+
+.produto .descricao h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.produto .descricao p {
+  color: #666;
+}
+
+.produto .preco {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #e91e63;
+  margin-top: 10px;
+}
+
+.btn-adicionar-carrinho {
+  border: 2px solid #e75480 !important;
+  background-color: #e75480 !important;
+  color: #fff !important;
+  border-radius: 20px;
+  padding: 8px 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color .3s;
+}
+
+.btn-adicionar-carrinho:hover {
+  background-color: #d6436f !important;
+}
+
+footer {
+  background-color: #fcd3d3 !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  color: #000 !important;
+  padding: 10px 0 !important;
+  font-size: 14px !important;
+  text-align: center;
+}
+
+.footer-conteudo h3 {
+  color: #000 !important;
+  font-weight: 700 !important;
+  font-size: 16px !important;
+  margin-bottom: 5px !important;
+}
+
+.footer-sociais {
+  display: flex;
+  justify-content: center;
+  gap: 10px !important;
+  margin: 5px 0 !important;
+}
+
+.footer-sociais img {
+  width: 20px !important;
+  transition: transform .2s;
+}
+
+.footer-sociais img:hover {
+  transform: scale(1.2);
+}
+
+.footer-bottom {
+  background: transparent !important;
+  padding: 5px 0 !important;
+  box-shadow: none !important;
+  font-size: 12px !important;
+}
+
+@media (max-width: 768px) {
+  section.produtos {
+    padding: 30px 10px;
+  }
+
+  .perfil-admin nav {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .catalogo-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}

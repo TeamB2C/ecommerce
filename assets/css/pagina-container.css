@@ -1,0 +1,18 @@
+/* Faz o body e html ocuparem 100% da altura da tela */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Container principal com layout flexível em coluna */
+.pagina-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Garante altura total da tela */
+}
+
+/* Main expande para empurrar o footer para o fim */
+main {
+    flex: 1;
+}

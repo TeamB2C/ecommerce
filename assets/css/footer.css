@@ -1,0 +1,98 @@
+footer
+{
+    background: #24252a;
+    height: auto;
+    width: 100vw;
+    padding-top: 40px;
+    color:#f7d917;
+}
+.footer-conteudo
+{
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+.footer-conteudo h3
+{
+    font-size: 1.8rem;
+    font-weight: 400;
+    text-transform: capitalize;
+    line-height: 3rem;
+    font-family: 'Anton', sans-serif;
+    color: #781378cb;
+}
+.footer-conteudo .footer-pp
+{
+    max-width: 500px;
+    margin: 10px auto;
+    line-height: 28px;
+    font-size: 14px;
+    color: black;
+    color: black;
+    font-family: 'Anton', sans-serif;
+}
+.footer-sociais 
+{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 0 3rem 0;
+}
+.footer-sociais li 
+{
+    margin: 0 10px 
+}
+.footer-sociais a
+{
+    text-decoration: none;
+}
+.footer-sociais a img
+{
+    width: 2.2rem;
+    transition: color .4s ease;
+}
+.footer-sociais a:hover img
+{
+    opacity: 0.5;
+    transition: 0.3s ;
+}
+.footer-bottom
+{
+    background: #23232ed0;
+    width: 100vw;
+    padding: 20px 0;
+    text-align: center;
+}
+.footer-bottom .footer-p
+{
+    font-size: 14px;
+    word-spacing: 2px;
+    text-transform: capitalize;
+}
+.footer-bottom span
+{
+    text-transform: uppercase;
+    opacity: .4;
+    font-weight: 200;
+    color: black;
+    font-family: 'Anton', sans-serif;
+}
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.pagina-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}

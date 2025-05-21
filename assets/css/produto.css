@@ -1,0 +1,152 @@
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Rubik', sans-serif;
+            background: linear-gradient(to bottom, #fff0f5, #ffe4e1);
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .pagina-container {
+            background: #fff;
+            padding: 40px 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            max-width: 700px;
+            width: 100%;
+            position: relative;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        header h1 {
+            font-size: 2em;
+            color: #e75480;
+            font-weight: 600;
+        }
+
+        /* Botão voltar no topo esquerdo */
+        .voltar {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .voltar img {
+            width: 30px;
+            height: auto;
+            cursor: pointer;
+            transition: filter 0.3s ease;
+        }
+
+        .voltar img:hover {
+            filter: brightness(0.8);
+        }
+
+        main section {
+            width: 100%;
+        }
+
+        main section h3 {
+            font-size: 1.4em;
+            color: #e75480;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        form label {
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: #b33951;
+        }
+
+        form input[type="text"],
+        form input[type="password"],
+        form input[type="file"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            font-size: 1em;
+            margin-bottom: 12px;
+            background-color: #fffafa;
+            transition: border-color 0.3s ease;
+        }
+
+        form input[type="text"]:focus,
+        form input[type="password"]:focus,
+        form input[type="file"]:focus {
+            outline: none;
+            border-color: #e75480;
+        }
+
+        form span {
+            font-size: 0.9em;
+            color: #d33;
+            margin-bottom: 10px;
+            min-height: 18px;
+        }
+
+        form button {
+            margin-top: 15px;
+            background-color: #e75480;
+            color: #fff;
+            padding: 14px 0;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        form button:hover {
+            background-color: #b33951;
+        }
+
+        footer {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 0.9em;
+            color: #777;
+        }
+
+        .footer-sociais {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .footer-sociais li img {
+            width: 24px;
+            height: auto;
+        }
+
+        .footer-bottom {
+            margin-top: 10px;
+        }
+
+        .footer-p {
+            font-size: 0.85em;
+            color: #999;
+        }
