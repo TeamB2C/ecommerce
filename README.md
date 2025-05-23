@@ -1,5 +1,3 @@
-http://ecommercepi.rf.gd/wp-admin/
-
 # FlexCorp Ecommerce
 
 Este repositório apresenta o sistema de e-commerce desenvolvido para a loja **“Um Convite de Casamento”**, especializada em convites e lembranças personalizadas para cerimônias matrimoniais. O objetivo do projeto é modernizar os processos da empresa, aumentar sua presença digital e proporcionar uma experiência de compra mais eficiente e envolvente aos clientes.
