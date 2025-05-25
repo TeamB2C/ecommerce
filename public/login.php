@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['email'];
     $senha = $_POST['senha'];
 
-    // Realiza o login verificando se o usuário existe e é válido
+
     if (login_usuario($email, $senha, $pdo)) {
         // Verifica se o usuário é administrador
         if ($_SESSION['is_admin'] == 1) {
