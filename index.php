@@ -40,7 +40,7 @@ if (isset($_SESSION['usuario_id'])) {
     <link rel="stylesheet" href="assets/css/perfil.css" />
     <link rel="stylesheet" href="assets/css/pagina-container.css" />
     <link rel="stylesheet" href="assets/css/card.css" />
-    <link rel="stylesheet" href="assets/css/pg_inicial.css" />
+    <link rel="stylesheet" href="assets/css/pagina_inicial.css" />
     <link rel="stylesheet" href="assets/css/menu-lateral.css" />
 
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
