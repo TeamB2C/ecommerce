@@ -57,6 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -77,7 +78,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             background-color: #fff;
             padding: 40px;
             border-radius: 15px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
             max-width: 600px;
             width: 100%;
             position: relative;
@@ -143,9 +144,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
         @keyframes desvanecer {
-            0% { opacity: 1; }
-            80% { opacity: 1; }
-            100% { opacity: 0; display: none; }
+            0% {
+                opacity: 1;
+            }
+
+            80% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+                display: none;
+            }
         }
 
         .voltar {
@@ -189,26 +199,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
         .voltar-painel {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    text-decoration: none;
-    font-size: 0.9em;
-    color: #d63384;
-    background-color: #f8f9fa;
-    padding: 6px 12px;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-}
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            text-decoration: none;
+            font-size: 0.9em;
+            color: #d63384;
+            background-color: #f8f9fa;
+            padding: 6px 12px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
 
 
 
-.voltar-painel:hover {
-    background-color: #e2e6ea;
-}
-
+        .voltar-painel:hover {
+            background-color: #e2e6ea;
+        }
     </style>
 </head>
+
 <body>
     <div class="pagina-container">
         <header>
@@ -256,4 +266,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </footer>
     </div>
 </body>
+
 </html>

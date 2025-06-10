@@ -1,12 +1,13 @@
 <?php
-$host = 'sql313.infinityfree.com';
-$dbname = 'if0_39028034_ecommerce';
-$username = 'if0_39028034';
-$password = 'flexcorp2024';
+$host = 'localhost';
+$db = 'ecommerce';
+$user = 'root';
+$pass = ''; // sem senha no WAMP
 
 try {
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+    $pdo = new PDO("mysql:host=$host;dbname=$db", $user, $pass);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    // echo "Conectado com sucesso!";
 } catch (PDOException $e) {
     die("Erro ao conectar ao banco de dados: " . $e->getMessage());
 }

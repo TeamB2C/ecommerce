@@ -9,7 +9,6 @@ header {
     justify-content: center;
 }
 
-/* Container geral para o header: seta, menu hamburguer e título */
 .menu-voltar-e-hamburguer {
     position: absolute;
     left: 20px;
@@ -21,19 +20,16 @@ header {
     z-index: 10;
 }
 
-/* Estilo para a seta de voltar */
 .voltar a img {
     width: 24px;
     height: 24px;
     cursor: pointer;
 }
 
-/* Container do menu hamburguer */
 .menu-container {
     position: relative;
 }
 
-/* Ícone do menu hamburguer */
 .hamburger-menu {
     width: 30px;
     height: 18px;
@@ -41,7 +37,7 @@ header {
     flex-direction: column;
     justify-content: space-between;
     cursor: pointer;
-    z-index: 20; /* maior que seta para ficar clicável */
+    z-index: 20;
 }
 
 .hamburger-menu span {
@@ -64,7 +60,6 @@ header {
     transform: rotate(-45deg) translate(5px, -5px);
 }
 
-/* Menu dropdown */
 .menu-hamburguer {
     max-height: 0;
     overflow: hidden;
@@ -95,7 +90,6 @@ header {
     border-radius: 8px;
 }
 
-/* Perfil e carrinho alinhados à direita */
 .perfil-admin {
     position: absolute;
     top: 50%;
@@ -133,7 +127,6 @@ header {
     border-radius: 0;
 }
 
-/* Título centralizado */
 header h1 {
     margin: 0 auto;
     font-size: 1.8em;

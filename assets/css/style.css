@@ -1,11 +1,9 @@
-/* Reset básico */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Corpo */
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
@@ -33,14 +31,10 @@ a:hover {
     text-decoration: underline;
 }
 
-/* Seção Principal */
 section {
     width: 80%;
     margin: 20px auto;
     padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 form {
@@ -80,7 +74,6 @@ button:hover {
     background-color: #0056b3;
 }
 
-/* Tabela para lista de produtos */
 table {
     width: 100%;
     margin-top: 20px;
@@ -106,7 +99,7 @@ table a:hover {
     text-decoration: underline;
 }
 
-/* Estilo para links de navegação */
+/* Navegação */
 nav {
     margin-top: 20px;
     text-align: center;
@@ -126,59 +119,99 @@ nav a:hover {
     background-color: #0056b3;
 }
 
-/* Alerta de erro */
 .error {
     color: red;
     font-weight: bold;
 }
 
-/* Estilo para cabeçalhos menores */
 h2 {
     font-size: 1.5em;
     margin-bottom: 15px;
 }
-/* Caixa azul com bordas arredondadas e sombreamento */
- .btn-finalizar {
-        display: inline-block;
-        padding: 10px 20px;
-        background-color: blue;
-        color: white;
-        text-decoration: none;
-        border-radius: 25px; /* Arredondar os cantos */
-        text-align: center;
-        font-weight: bold;
-    }
-    .btn-finalizar:hover {
-        background-color: darkblue; /* Cor ao passar o mouse */
-    }
-.produtos {
-    display: flex;          /* Deixa os filhos em linha */
-    flex-wrap: wrap;        /* Permite quebrar linha se não couber */
-    gap: 20px;              /* Espaçamento entre as caixas */
-    justify-content: center; /* Centraliza as caixas na linha */
+
+.btn-finalizar {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: blue;
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    text-align: center;
+    font-weight: bold;
+}
+.btn-finalizar:hover {
+    background-color: darkblue;
+}
+
+.produtos,
+.conteudo-produto {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
 }
 
 .produto {
-    border: 1px solid #ccc; /* já existente */
-    border-radius: 8px;     /* já existente */
-    padding: 15px;          /* mantido o valor maior */
-    width: 220px;           /* já existente */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* já existente */
-    text-align: center;     /* já existente */
-    background-color: #fff; /* já existente */
-    transition: transform 0.2s ease; /* já existente */
-    box-sizing: border-box; /* novo */
-    position: relative;     /* novo */
-}
-
-
-.produto:hover {
-    transform: translateY(-5px); /* Pequeno efeito de hover */
+    margin: 0;
+    padding: 0;
+    background: transparent !important;
+    text-align: left !important;
 }
 
 .produto img {
-    max-width: 100%;
+    width: 100%;
     height: auto;
-    border-radius: 5px;
-    margin-bottom: 10px;
+    object-fit: cover;
+    padding: 0;
+    margin: 0;
+    background: transparent;
+    display: block;
+    border: none;
+}
+
+.produto:hover {
+    opacity: 0.8;
+}
+
+.info-preco-sacola {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start !important;
+    text-align: left !important;
+    padding: 0 16px 12px;
+    gap: 2px;
+}
+
+.preco {
+    font-weight: 700 !important;
+    text-align: left !important;
+    color: #000 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100%;
+    line-height: 1.2;
+    font-size: 16px !important;
+    display: block !important;
+}
+
+.produto h3 {
+    font-weight: 400 !important;
+    text-align: left !important;
+    color: #111 !important;
+    font-size: 14px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100%;
+    line-height: 1.2;
+}
+
+.preco.indisponivel {
+    color: gray;
+    font-style: italic;
+}
+
+.produto form button i {
+    font-size: 20px;
+    color: #000;
+    margin-left: 10px;
 }

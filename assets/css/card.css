@@ -1,17 +1,16 @@
-/* Estilo para deixar o card clicável */
 .produto {
     border: 1px solid #ccc;
     padding: 15px;
     margin: 10px;
     width: 250px;
-    display: inline-flex; /* use flex para melhor alinhamento */
-    flex-direction: column; /* conteúdo em coluna */
+    display: inline-flex; 
+    flex-direction: column; 
     vertical-align: top;
     position: relative;
     cursor: pointer;
     transition: box-shadow 0.3s ease;
     background: #fff;
-    height: 100%; /* para cards com altura igual */
+    height: 100%;
     box-sizing: border-box;
 }
 
@@ -32,14 +31,14 @@
 
 .produto p {
     margin: 5px 0;
-    flex-grow: 1; /* para ocupar espaço e empurrar o botão para baixo */
+    flex-grow: 1; 
 }
 
 
 
 .btn-adicionar-carrinho {
-    display: block;                  /* necessário para margin funcionar */
-    margin: 12px auto 0 auto;        /* centraliza horizontalmente */
+    display: block;                  
+    margin: 12px auto 0 auto;       
     padding: 8px 12px;
     background-color: #007bff;
     color: white;
@@ -60,14 +59,12 @@
     background-color: #0056b3;
 }
 
-/* Evita que o clique no botão propague para o card */
 .btn-adicionar-carrinho:active, .btn-adicionar-carrinho:focus {
     outline: none;
 }
 
-/* Outros botões */
 .btn-link {
-    color: #007bff; /* azul link */
+    color: #007bff;
     text-decoration: none;
     padding: 5px 10px;
     border-radius: 4px;
@@ -75,7 +72,7 @@
     font-weight: 500;
     cursor: pointer;
     transition: background-color 0.3s, border-color 0.3s;
-    margin-right: 10px; /* espaço entre os links */
+    margin-right: 10px;
     display: inline-block;
 }
 
@@ -86,7 +83,7 @@
 }
 
 .btn-danger {
-    color: #dc3545; /* vermelho */
+    color: #dc3545;
     border-color: transparent;
 }
 

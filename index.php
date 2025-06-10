@@ -2,13 +2,11 @@
 session_start();
 include('includes/conexao.php');
 
-// Obtém os produtos do banco
 $stmt = $pdo->query("SELECT * FROM produtos");
 $produtos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-// Verifica se o usuário está logado
 $usuario_logado = false;
-$usuario_nome = '';  
+$usuario_nome = '';
 $usuario_imagem = '';
 $usuario_is_admin = false;
 
@@ -31,147 +29,125 @@ if (isset($_SESSION['usuario_id'])) {
 
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" href="assets/images/sistema/carta_fechada.png" type="image">
     <title>Um Convite de Casamento</title>
+
     <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="stylesheet" href="assets/css/perfil.css" />
-    <link rel="stylesheet" href="assets/css/footer.css" />
     <link rel="stylesheet" href="assets/css/pagina-container.css" />
     <link rel="stylesheet" href="assets/css/card.css" />
-    <link rel="stylesheet" href="assets/css/custom.css" />
-    <script src="assets/js/header.js"></script>
+    <link rel="stylesheet" href="assets/css/pg_inicial.css" />
+    <link rel="stylesheet" href="assets/css/menu-lateral.css" />
 
-
-    
-    <script>
-        // Abre a página do produto ao clicar no card, exceto no botão adicionar
-        function abrirProduto(id) {
-            window.location.href = 'public/produto.php?id=' + id;
-        }
-        // Evita que clique no botão propague
-        function pararPropagacao(event) {
-            event.stopPropagation();
-        }
-    </script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
+
 <body>
-    
     <div class="pagina-container">
         <header>
             <div class="menu-container">
-                <div class="hamburger-menu" onclick="toggleMenu()">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-
-                <div id="menu-hamburguer" class="menu-hamburguer">
-                    <?php if ($usuario_logado): ?>
-                        <div class="user-info">
-                            <?php if ($usuario_is_admin): ?>
-                                <a href="admin/painel.php">Painel</a>
-                            <?php endif; ?>
-                            <a href="public/perfil.php">Gerenciar Perfil</a>
-                            <a href="public/logout.php">Sair</a>
-                        </div>
-                    <?php else: ?>
-                        <a href="public/login.php">Login</a>
-                        <a href="public/registrar.php">Cadastrar-se</a>
-                    <?php endif; ?>
+                <div class="hamburger-menu" id="hamburger">
+                    <i class='bx bx-menu'></i>
                 </div>
             </div>
 
-            <div class="logo-central">
+            <div class="logo">
                 <a href="index.php">
                     <img src="assets/images/sistema/logo01.png" alt="Logo da Loja" class="logo-img" />
                 </a>
             </div>
 
-            <div class="perfil-admin">
-                <a href="public/carrinho.php" class="icon-carrinho" title="Carrinho">
-                    <img src="assets/images/sistema/carrinho.png" alt="Carrinho" class="carrinho-img" />
-                </a>
-
-                <?php if ($usuario_logado): ?>
-                    <?php if (!empty($usuario_imagem)): ?>
-                        <img src="uploads/<?php echo htmlspecialchars($usuario_imagem); ?>" alt="Foto de perfil" />
-                    <?php else: ?>
-                        <img src="assets/images/default.png" alt="Sem foto" />
-                    <?php endif; ?>
-
-                    <div>
-                        <p>Bem-vindo, <strong><?php echo htmlspecialchars($usuario_nome); ?></strong></p>
-                        <nav>
-                            <a href="public/perfil.php">Perfil</a>
-                            <a href="public/logout.php">Sair</a>
-                        </nav>
-                    </div>
+            <div class="menu-desktop">
+                <?php if ($usuario_is_admin): ?>
+                    <a href="admin/painel.php">Painel Admin</a>
                 <?php endif; ?>
+                <a href="index.php">Catálogo</a>
+                <a href="historico_pedidos.php">Histórico de Pedidos</a>
+            </div>
+
+
+            <div class="icones-header">
+                <a href="<?php echo $usuario_logado ? 'public/perfil.php' : 'public/login_registro.php'; ?>" class="icone">
+                    <i class='bx bx-user'></i>
+                </a>
+                <div id="sacola-icon" class="icone">
+                    <i class='bx bx-shopping-bag'></i>
+                    <span class="item-sacola"></span>
+                </div>
             </div>
         </header>
 
-        <main>
-            <section>
-                <div class="catalogo-header">
-                    <h2>Catálogo de Produtos</h2>
-                    <form class="catalogo-busca" action="index.php" method="GET">
-                    <input 
-                    type="text" 
-                    name="busca" 
-                    placeholder="O que você procura?" 
-                    autocomplete="off"
-                    value=""
-                    />
-                    </form>
-                </div>
+        <div class="menu-fundo" id="menuFundo"></div>
 
+        <nav class="menu-lateral" id="menuLateral">
+            <?php if ($usuario_logado): ?>
+                <?php if ($usuario_is_admin): ?>
+                    <a href="admin/painel.php">Painel</a>
+                <?php endif; ?>
+                <a href="public/perfil.php">Gerenciar Perfil</a>
+                <a href="public/logout.php">Sair</a>
+            <?php else: ?>
+                <a href="public/login_registro.php">Login</a>
+                <a href="public/login_registro.php?acao=registrar">Registrar-se</a>
+            <?php endif; ?>
+        </nav>
 
-                <div class="produtos">
-                    <?php foreach ($produtos as $produto): ?>
-                        <div class="produto" onclick="abrirProduto(<?php echo $produto['id']; ?>)">
-                            <img src="assets/images/produtos/<?php echo $produto['imagem']; ?>" alt="<?php echo htmlspecialchars($produto['nome']); ?>" />
-                            <h3><?php echo htmlspecialchars($produto['nome']); ?></h3>
-                            <br>
-                            
-                            <form action="public/adicionar_ao_carrinho.php" method="POST" onsubmit="pararPropagacao(event)" style="position: absolute; bottom: 15px; right: 15px;">
-    <input type="hidden" name="produto_id" value="<?php echo $produto['id']; ?>">
-    <input type="hidden" name="quantidade" value="1">
-    <center><button type="submit" class="btn-adicionar-carrinho">Adicionar ao Carrinho</button></center>
-</form>
-
+        <section class="catalogo">
+            <h2 class="titulo">Conheça nossos destaques</h2>
+            <div class="conteudo-produto">
+                <?php foreach ($produtos as $produto): ?>
+                    <div class="produto" onclick="abrirProduto(<?php echo $produto['id']; ?>)">
+                        <img src="assets/images/produtos/<?php echo $produto['imagem']; ?>"
+                            alt="<?php echo htmlspecialchars($produto['nome']); ?>" />
+                        <div class="info-preco-sacola">
+                            <?php if ($produto['preco'] > 0): ?>
+                                <span class="preco">R$ <?php echo number_format($produto['preco'], 2, ',', '.'); ?></span>
+                            <?php else: ?>
+                                <span class="preco indisponivel">Preço indisponível</span>
+                            <?php endif; ?>
                         </div>
-                    <?php endforeach; ?>
-                </div>
-            </section>
-        </main>
+                        <h3><?php echo htmlspecialchars($produto['nome']); ?></h3>
+                        <?php if ($produto['preco'] > 0): ?>
+                            <form action="public/adicionar_ao_carrinho.php" method="POST" onsubmit="pararPropagacao(event)">
+                                <input type="hidden" name="produto_id" value="<?php echo $produto['id']; ?>">
+                                <input type="hidden" name="quantidade" value="1">
+                                <button type="submit" class="btn-adicionar-sacola">
+                                    Adicionar à sacola
+                                </button>
+                            </form>
+                        <?php endif; ?>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        </section>
+    </div>
 
-        <footer>
-            <div class="footer-conteudo">
-                <h3>Um convite de casamento</h3>
-                <ul class="footer-sociais">
-                    <li><a href="#"><img src="assets/images/sistema/instagram.png" alt="Instagram" /></a></li>
-                    <li><a href="#"><img src="assets/images/sistema/twitter.png" alt="Twitter" /></a></li>
-                    <li><a href="#"><img src="assets/images/sistema/facebook.png" alt="Facebook" /></a></li>
-                    <li><a href="#"><img src="assets/images/sistema/linkedin.png" alt="LinkedIn" /></a></li>
-                </ul>
-            </div>
-            <div class="footer-bottom">
-                <p class="footer-p">&copy; 2025 Um Convite de Casamento - Todos os direitos reservados</p>
-            </div>
-        </footer>
-    </div>
     <div vw class="enabled">
-    <div vw-access-button class="active"></div>
-    <div vw-plugin-wrapper>
-      <div class="vw-plugin-top-wrapper"></div>
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
     </div>
-  </div>
-  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
-  <script>
-    new window.VLibras.Widget('https://vlibras.gov.br/app');
-  </script>
+
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
+
+    <script src="assets/js/menu-lateral.js"></script>
+    <script>
+        function abrirProduto(id) {
+            window.location.href = 'public/produto.php?id=' + id;
+        }
+
+        function pararPropagacao(event) {
+            event.stopPropagation();
+        }
+    </script>
 </body>
+
 </html>
